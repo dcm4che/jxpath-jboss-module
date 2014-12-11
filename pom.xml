@@ -2,6 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.dcm4che</groupId>
   <artifactId>jxpath-jboss-module</artifactId>
+  <name>jxpath jboss module</name>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <description>dcm4chee archive server</description>
