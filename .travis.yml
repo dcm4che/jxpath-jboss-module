@@ -1,0 +1,15 @@
+language: java
+
+jdk:
+- oraclejdk7
+
+env: 
+  global: 
+  - RELEASE_CANDIDATE=$(.travis.d/release_candidate.sh)
+  - secure: "QLVUcqkCcP75NNu0WKdLgQ7o7oUh014GvF7Qm26L7hnt7LXfY/OWH9pO+4QdwUjjDFRs8D4sh6pl++eHMajNRK4rT2AUP0vfbBTcjtId/ic2HbRCG9pH7NN/FJawGWbdhLWWxCHwGnR2VLrrao/blBt8rSetaI5QlZ7RXPbPDdA="
+
+script:
+- .travis.d/script.sh
+
+after_success:
+- .travis.d/after_success.sh
