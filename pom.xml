@@ -3,7 +3,7 @@
   <groupId>org.dcm4che</groupId>
   <artifactId>jxpath-jboss-module</artifactId>
   <name>jxpath jboss module</name>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.3</version>
   <packaging>pom</packaging>
   <description>jxpath jboss module</description>
   <url>http://dcm4che.org</url>
@@ -45,6 +45,13 @@
     </dependency>
   </dependencies>
   <build>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-ssh</artifactId>
+        <version>2.2</version>
+      </extension>
+    </extensions>
     <pluginManagement>
       <plugins>
         <plugin>
@@ -127,45 +134,4 @@
       <url>scp://www.dcm4che.org:443/home/maven2</url>
     </repository>
   </distributionManagement>
-  <profiles>
-    <profile>
-      <id>ossrh-up</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
-          </plugin>
-          <plugin>
-            <artifactId>maven-gpg-plugin</artifactId>
-          </plugin>
-          <plugin>
-            <artifactId>maven-javadoc-plugin</artifactId>
-          </plugin>
-          <plugin>
-            <artifactId>maven-source-plugin</artifactId>
-          </plugin>
-        </plugins>
-      </build>
-      <distributionManagement>
-        <snapshotRepository>
-          <id>ossrh</id>
-          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-          <id>ossrh</id>
-          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-      </distributionManagement>
-    </profile>
-    <profile>
-      <id>ossrh-down</id>
-      <repositories>
-        <repository>
-          <id>ossrh</id>
-          <url>https://oss.sonatype.org/content/groups/staging</url>
-        </repository>
-      </repositories>
-    </profile>
-  </profiles>
 </project>
